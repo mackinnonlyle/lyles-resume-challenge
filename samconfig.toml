@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "lyles-resume-challenge"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-x9yae66i9sl9"
+s3_prefix = "lyles-resume-challenge"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
