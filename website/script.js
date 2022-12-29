@@ -1,12 +1,19 @@
 "use strict";
 
-$(document).ready(() => {
-    $.post(' https://lq7si5jjx4.execute-api.us-east-1.amazonaws.com/Prod/dev ')
-    .done(visitor_counter => {
-        $('#visits').text(visitor_counter);
-    })
-    .fail(e => {
-        console.log('Error');
-        console.log(e);
-    });
-});
+fetch('https://dnrpe6jq8b.execute-api.us-east-1.amazonaws.com/Prod/dev', {
+  method: 'POST'
+})
+  .then(response => response.json())
+  .then(visitor_counter => {
+    console.log('**** VISITOR_COUNTER', visitor_counter);
+    const visitsElement = document.querySelector('#visits');
+    if (visitsElement) {
+      visitsElement.textContent = visitor_counter.visit_count;
+    } else {
+      console.error("Element with 'visits' ID not found in the DOM");
+    }
+  })
+  .catch(error => {
+    console.log('Error');
+    console.error(error);
+  });

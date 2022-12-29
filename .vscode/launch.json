@@ -1,6 +1,8 @@
 {
     "configurations": [
         
+
+        
         {
             "type": "aws-sam",
             "request": "direct-invoke",
@@ -12,7 +14,7 @@
             },
             "api": {
                 "path": "/",
-                "httpMethod": "get",
+                "httpMethod": "post",
                 "payload": {
                     "json": {}
                 }

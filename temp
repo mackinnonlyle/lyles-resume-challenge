@@ -1,0 +1,105 @@
+----------------------HERE IS PARTS OF MY HTML------------------------------
+
+<html>
+    <head>
+
+      <script src="script.js"></script>
+
+<div id="visitors" class="visitors"> Number of Visitors to site: <span id="visits"></span><span id="loader" class="loader"></span>
+
+
+----------------------HERE IS MY script.js FILE------------------------------
+    "use strict";
+
+$(document).ready(() => {
+    $.post('https://lq7si5jjx4.execute-api.us-east-1.amazonaws.com/Prod/dev')
+    .done(visitor_counter => {
+        $('#visits').text(visitor_counter);
+    })
+    .fail(e => {
+        console.log('Error');
+        console.log(e);
+    });
+});
+
+
+
+----------------------HERE IS MY app.py FILE------------------------------
+
+
+import json
+import boto3
+
+dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
+table = dynamodb.Table('my-database')
+
+def lambda_handler(event, context):
+    response = table.get_item(
+        Key = {
+            'ID':'visits'
+        }
+    )
+    
+    visit_count = response['Item']['counter'] 
+    visit_count = str(int(visit_count) + 1)
+    
+    response = table.put_item(
+        Item = {
+            'ID':'visits',
+            'counter': visit_count
+        }
+    )
+
+    return {
+        'statusCode': 200,
+        'headers': {
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': '*'
+        },
+        'body': json.dumps({'visit_count': visit_count}), "isBase64Encoded": False
+    }
+
+
+
+
+    ---------------------------------------
+
+-----------------------------------------
+
+
+"use strict";
+
+fetch('https://dnrpe6jq8b.execute-api.us-east-1.amazonaws.com/Prod/dev', {
+  method: 'POST'
+})
+  .then(response => response.json())
+  .then(visitor_counter => {
+    console.log('**** VISITOR_COUNTER', visitor_counter);
+    document.querySelector('#visits').textContent = visitor_counter;
+  })
+  .catch(error => {
+    console.log('Error');
+    console.error(error);
+  });
+
+
+
+
+
+
+
+  "use strict";
+
+$(document).ready(() => {
+    $.post('https://dnrpe6jq8b.execute-api.us-east-1.amazonaws.com/Prod/dev')
+    .done(visitor_counter => {
+        consloe.log('**** VISITOR_COUNTER', visitor_counter); 
+        $('#visits').text(visitor_counter);
+      })        
+
+    })
+    .fail(e => {
+        console.log('Error');
+        console.log(e);
+    });

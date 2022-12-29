@@ -7,6 +7,11 @@ Description:
 
 
 Globals:
+  Api:
+    Cors:
+      AllowMethods: "'*'"
+      AllowHeaders: "'*'"
+      AllowOrigin: "'*'"
   Function:
     Timeout: 3
     MemorySize: 128
@@ -105,6 +110,7 @@ Resources:
       KeySchema:
         - AttributeName: "ID"
           KeyType: "HASH"
+
 
   CounterLambdaFunction:
     Type: AWS::Serverless::Function
