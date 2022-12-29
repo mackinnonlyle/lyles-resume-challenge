@@ -1,11 +1,11 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: >
+Description: 
   lyles-resume-challenge
 
   Sample SAM Template for lyles-resume-challenge
 
-# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+
 Globals:
   Function:
     Timeout: 3
@@ -68,7 +68,7 @@ Resources:
             Id: lyles-resume-challenge.s3.us-east-1.amazonaws.com
             CustomOriginConfig:
               OriginProtocolPolicy: match-viewer
-        Enabled: "true"
+        Enabled: true
         DefaultRootObject: index.html
 
 
@@ -112,7 +112,7 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: lyles-resume-challenge
-      CodeUri: lyles-resume-challenge/
+      CodeUri: counter-app/function/
       Handler: app.lambda_handler
       Runtime: python3.9
       Architectures:
@@ -121,16 +121,16 @@ Resources:
         Visits:
           Type: Api
           Properties:
-            Path: /visit
+            Path: /dev
             Method: post
 
 Outputs:
   CounterLambdaFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for CounterLambdaFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
-  CounterLambdaFunction:
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/dev"
+  CounterLambdaFunction2:
     Description: "CounterLambdaFunction ARN"
     Value: !GetAtt CounterLambdaFunction.Arn
-  CounterLambdaFunctionIamRole:
+  CounterLambdaFunction2IamRole:
     Description: "Implicit IAM Role created for CounterLambdaFunction"
     Value: !GetAtt CounterLambdaFunction.Arn

@@ -1,9 +1,8 @@
 "use strict";
 
 $(document).ready(() => {
-    $.post('https://s066z7tp0g.execute-api.us-east-1.amazonaws.com/Prod/visit')
+    $.post(' https://lq7si5jjx4.execute-api.us-east-1.amazonaws.com/Prod/dev ')
     .done(visitor_counter => {
-        $('#loader').hide();
         $('#visits').text(visitor_counter);
     })
     .fail(e => {

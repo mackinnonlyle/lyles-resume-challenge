@@ -26,7 +26,7 @@ def lambda_handler(event, context):
         'headers': {
             'Access-Control-Allow-Headers': '*',
             'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Methods': '*'
+            'Access-Control-Allow-Methods': 'OPTIONS, POST, GET'
         },
-        'body': json.dumps({'visit_count': visit_count}), "isBase64Encoded": False
+        'body': json.dumps({'visit_count': visit_count})
     }
