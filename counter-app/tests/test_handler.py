@@ -5,7 +5,7 @@ from unittest import mock
 
 from function import app
 
-with open('lyles-resume-challenge/template.yaml', 'r') as f:
+with open('template.yaml', 'r') as f:
     TABLENAME = re.search(r'TableName: (.*)?', f.read()).group(1)
 
 @mock.patch.dict(os.environ, {"TABLENAME": TABLENAME})
