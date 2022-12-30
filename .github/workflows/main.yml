@@ -11,7 +11,7 @@ jobs:
           python-version: 3.8
       - name: Install dependencies
         run: |
-          cd crc/demo-app/testsf
+          cd counter-app/tests
           python -m pip install --upgrade pip
           pip install -r requirements.txt
       - name: Run tests with pytest
