@@ -1,6 +1,6 @@
 "use strict";
 
-fetch('https://dnrpe6jq8b.execute-api.us-east-1.amazonaws.com/Prod/dev', {
+fetch('https://dnrpe6jq8b.execute-api.us-east-1.amazonaws.com/Prod/visit', {
   method: 'POST'
 })
   .then(response => response.json())

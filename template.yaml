@@ -128,13 +128,13 @@ Resources:
         Visits:
           Type: Api
           Properties:
-            Path: /dev
+            Path: /visit
             Method: post
 
 Outputs:
   CounterLambdaFunctionApi:
     Description: "API Gateway endpoint URL for Prod stage for CounterLambdaFunction"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/dev"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/visit"
   CounterLambdaFunction2:
     Description: "CounterLambdaFunction ARN"
     Value: !GetAtt CounterLambdaFunction.Arn
