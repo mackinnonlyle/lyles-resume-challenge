@@ -5,7 +5,6 @@ Description:
 
   Sample SAM Template for lyles-resume-challenge
 
-
 Globals:
   Api:
     Cors:
@@ -17,7 +16,6 @@ Globals:
     MemorySize: 128
 
 Resources:
-
 
   MyWebsite:
     Type: AWS::S3::Bucket
@@ -58,9 +56,6 @@ Resources:
         Aliases:
             - challenge.lylemackinnon.com
 
-
-
-
         DefaultCacheBehavior:
           ViewerProtocolPolicy: allow-all
           TargetOriginId: lyles-resume-challenge.s3.us-east-1.amazonaws.com
@@ -77,8 +72,6 @@ Resources:
         Enabled: true
         DefaultRootObject: index.html
 
-
-
   MyRoute53Record:
     Type: "AWS::Route53::RecordSetGroup"
     Properties:
@@ -90,15 +83,11 @@ Resources:
             HostedZoneId: Z2FDTNDATAQYW2
             DNSName: !GetAtt MyDistribution.DomainName
 
-
   MyCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
       DomainName: challenge.lylemackinnon.com
       ValidationMethod: DNS
-
-
-
 
   CounterDynamoDBTable:
     Type: AWS::DynamoDB::Table
@@ -111,7 +100,6 @@ Resources:
       KeySchema:
         - AttributeName: "ID"
           KeyType: "HASH"
-
 
   CounterLambdaFunction:
     Type: AWS::Serverless::Function
