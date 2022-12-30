@@ -25,7 +25,7 @@ Resources:
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
-      BucketName: testbucket
+      BucketName: lyles-test-bucket
 
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
