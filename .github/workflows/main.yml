@@ -1,7 +1,7 @@
 name: main
 on: push
 jobs:
-  test-infra:
+  test-infrastructure:
     runs-on: ubuntu-latest
     timeout-minutes: 2
     steps:
@@ -20,8 +20,8 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: pytest
 
-  build-and-deploy-infra:
-    needs: test-infra
+  build-and-deploy-infrastructure:
+    needs: test-infrastructure
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -39,7 +39,7 @@ jobs:
       - run: sam deploy --no-confirm-changeset --no-fail-on-empty-changeset
         working-directory: 
 
-  deploy-site:
+  deploy-website:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
