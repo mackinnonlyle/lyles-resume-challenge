@@ -8,12 +8,16 @@ Description:
 Globals:
   Api:
     Cors:
-      AllowMethods: "'*'"
+      AllowMethods:
+        - GET
+        - POST
       AllowHeaders: "'*'"
-      AllowOrigin: "'*'"
+      AllowOrigin:
+        - "*.lylemackinnon.com"
   Function:
     Timeout: 3
     MemorySize: 128
+
 
 Resources:
 
