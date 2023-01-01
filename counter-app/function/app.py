@@ -24,10 +24,9 @@ def lambda_handler(event, context):
     return {
         'statusCode': 200,
         'headers': {
-          'Access-Control-Allow-Headers': '*',
-          'Access-Control-Allow-Origin': '*.lylemackinnon.com',
-          'Access-Control-Allow-Methods': 'GET, POST'
-
+            'Access-Control-Allow-Headers': '*',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': '*'
         },
         'body': json.dumps({'visit_count': visit_count})
     }
