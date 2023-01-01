@@ -8,7 +8,7 @@ Description:
 Globals:
   Api:
     Cors:
-      AllowMethods:
+      AllowMethods:   
         - GET
         - POST
       AllowHeaders: "'*'"
