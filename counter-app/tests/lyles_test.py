@@ -1,4 +1,9 @@
+# Import the necessary libraries
 import boto3
+import pytest
+
+# Import the lambda_handler function from the main module
+from main import lambda_handler
 
 def test_lambda_handler():
     # Create a mock event to test the function with
@@ -28,7 +33,4 @@ def test_lambda_handler():
     assert int(visit_count) == 1
 
     # Print a success message
-    print("Test successful!")
-
-# Call the test function
-test_lambda_handler()
+    print("Testing has been successful!")
