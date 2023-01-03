@@ -1,9 +1,8 @@
 # Import the necessary libraries
 import boto3
 import pytest
+import lambda_handler
 
-# Import the lambda_handler function from the main module
-from main import lambda_handler
 
 def test_lambda_handler():
     # Create a mock event to test the function with
