@@ -6,14 +6,7 @@ Description:
   Sample SAM Template for lyles-resume-challenge
 
 Globals:
-  Api:
-    Cors:
-      AllowMethods:   
-        - GET
-        - POST
-      AllowHeaders: "'*'"
-      AllowOrigin:
-        - "*.lylemackinnon.com"
+    
   Function:
     Timeout: 3
     MemorySize: 128
