@@ -1,12 +1,12 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: 
-  lyles-resume-challenge
+  terraform-lyles-resume-challenge
 
-  Sample SAM Template for lyles-resume-challenge
+  Sample SAM Template for terraform-lyles-resume-challenge
 
 Globals:
-
+    
   Function:
     Timeout: 3
     MemorySize: 128
@@ -20,7 +20,7 @@ Resources:
       AccessControl: PublicRead
       WebsiteConfiguration:
         IndexDocument: index.html
-      BucketName: lyles-resume-challenge
+      BucketName: terraform-lyles-resume-challenge
 
   BucketPolicy:
     Type: AWS::S3::BucketPolicy
@@ -51,19 +51,19 @@ Resources:
             SslSupportMethod: sni-only
 
         Aliases:
-            - challenge.lylemackinnon.com
+            - terraform-challenge.lylemackinnon.com
 
         DefaultCacheBehavior:
           ViewerProtocolPolicy: allow-all
-          TargetOriginId: lyles-resume-challenge.s3.us-east-1.amazonaws.com
+          TargetOriginId: terraform-lyles-resume-challenge.s3.us-east-1.amazonaws.com
           DefaultTTL: 0
           MinTTL: 0
           MaxTTL: 0
           ForwardedValues:
             QueryString: false
         Origins:
-          - DomainName: lyles-resume-challenge.s3.us-east-1.amazonaws.com
-            Id: lyles-resume-challenge.s3.us-east-1.amazonaws.com
+          - DomainName: terraform-lyles-resume-challenge.s3.us-east-1.amazonaws.com
+            Id: terraform-lyles-resume-challenge.s3.us-east-1.amazonaws.com
             CustomOriginConfig:
               OriginProtocolPolicy: match-viewer
         Enabled: true
@@ -74,7 +74,7 @@ Resources:
     Properties:
       HostedZoneId: Z00882183LTKWQTNEVG0Z
       RecordSets:
-        - Name: challenge.lylemackinnon.com
+        - Name: terraform-challenge.lylemackinnon.com
           Type: A
           AliasTarget:
             HostedZoneId: Z2FDTNDATAQYW2
@@ -83,13 +83,13 @@ Resources:
   MyCertificate:
     Type: AWS::CertificateManager::Certificate
     Properties:
-      DomainName: challenge.lylemackinnon.com
+      DomainName: terraform-challenge.lylemackinnon.com
       ValidationMethod: DNS
 
   CounterDynamoDBTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: lyles-resume-challenge
+      TableName: terraform-lyles-resume-challenge
       BillingMode: PAY_PER_REQUEST
       AttributeDefinitions:
         - AttributeName: "ID"
@@ -103,7 +103,7 @@ Resources:
     Properties:
       Policies:
         - DynamoDBCrudPolicy:
-            TableName: lyles-resume-challenge
+            TableName: terraform-lyles-resume-challenge
       CodeUri: counter-app/function/
       Handler: app.lambda_handler
       Runtime: python3.9
