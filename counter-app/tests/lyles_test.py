@@ -1,6 +1,8 @@
 # Import the necessary libraries
 import boto3
 from counter-app.function import app
+from counter-app.function 
+
 import pytest
 import lambda_handler
 
