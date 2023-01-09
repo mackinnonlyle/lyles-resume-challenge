@@ -65,8 +65,8 @@
     transform: skewY(-5deg);
   }
   .photo img {
-    width: 80%;
-    border-radius: 50%;
+    width: 90%;
+    border-radius: 80%;
   }
   
   .bio .name {
