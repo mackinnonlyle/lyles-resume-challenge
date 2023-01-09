@@ -54,7 +54,7 @@ Resources:
             - challenge.lylemackinnon.com
 
         DefaultCacheBehavior:
-          ViewerProtocolPolicy: allow-all
+          ViewerProtocolPolicy: redirect-to-https
           TargetOriginId: lyles-resume-challenge.s3.us-east-1.amazonaws.com
           DefaultTTL: 0
           MinTTL: 0
